@@ -1,5 +1,5 @@
 variable "base_bucket_name" {
-  default = "datalake-edc_mod1-studycases"
+  default = "datalake-edc-mod1-studycases"
 }
 
 variable "ambiente" {
