@@ -5,3 +5,7 @@ variable "base_bucket_name" {
 variable "ambiente" {
   default = "prod"
 }
+
+variable "lambda_function_name" {
+  default = "IGTI_lambda_studie"
+}
