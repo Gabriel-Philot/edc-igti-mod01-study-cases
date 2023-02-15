@@ -29,5 +29,5 @@ print("Writing delta table...")
     .write
     .mode("overwrite")
     .format("delta")
-    .save("datalake-edc-mod1-studycases-prod/staging-zone/enem")
+    .save("datalake-edc-mod1-studycases-prod/staging-zone/enem/")
 )
