@@ -17,7 +17,7 @@ else
     echo "============================================="
 fi
 
-# Declara variavel que localiza o requirements com as dependências do projeto
+# Declara variavel que localiza o requirements com as dependências do projeto#
 FILE_REQUIREMENTS=../etl/lambda_requirements.txt
 
 # Verifica se o arquivo lambda_requirements existe
