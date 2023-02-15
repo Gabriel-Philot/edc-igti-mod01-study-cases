@@ -27,8 +27,8 @@
         {
             "Action": "iam:PassRole",
             "Resource": [
-                "arn:aws:iam::401868797180:role/EMR_DefaultRole",
-                "arn:aws:iam::401868797180:role/EMR_EC2_DefaultRole"
+                "arn:aws:iam::415658869338:role/EMR_DefaultRole",
+                "arn:aws:iam::415658869338:role/EMR_EC2_DefaultRole"
             ],
             "Effect": "Allow"
         }
