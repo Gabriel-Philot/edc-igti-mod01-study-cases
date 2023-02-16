@@ -21,7 +21,7 @@ enem = (
 )
 
 # Escreve a tabela em staging em formato delta
-print("Writing delta table...")
+print("Writing parquet table...")
 (
     enem
     .write
