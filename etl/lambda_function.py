@@ -7,7 +7,7 @@ def handler(event, context):
     client = boto3.client('emr', region_name='us-east-2')
 
     cluster_id = client.run_job_flow(
-                Name='EMR-gabriel-IGTI-delta-lambda',
+                Name='EMR-gabriel-IGTI-lambda-emrjob',
                 ServiceRole='EMR_DefaultRole',
                 JobFlowRole='EMR_EC2_DefaultRole',
                 VisibleToAllUsers=True,
@@ -37,6 +37,7 @@ def handler(event, context):
                 },
 
                 Applications=[
+                    {'Name': 'Hadoop'},
                     {'Name': 'Spark'},
                     {'Name': 'Hive'},
                     {'Name': 'Pig'},
@@ -88,27 +89,9 @@ def handler(event, context):
                     'HadoopJarStep': {
                         'Jar': 'command-runner.jar',
                         'Args': ['spark-submit',
-                                 '--packages', 'io.delta:delta-core_2.12:1.0.0', 
-                                 '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
-                                 '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
                                  's3://datalake-edc-mod1-studycases-prod/emr-code/pyspark/delta_spark_01_insert.py'
-                                 ]
-                    }
-                },
-                {
-                    'Name': 'Simulacao e UPSERT do ENEM',
-                    'ActionOnFailure': 'CONTINUE',
-                    'HadoopJarStep': {
-                        'Jar': 'command-runner.jar',
-                        'Args': ['spark-submit',
-                                 '--packages', 'io.delta:delta-core_2.12:1.0.0', 
-                                 '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
-                                 '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
-                                 '--master', 'yarn',
-                                 '--deploy-mode', 'cluster',
-                                 's3://datalake-edc-mod1-studycases-prod/emr-code/pyspark/delta_spark_uspert_02.py'
                                  ]
                     }
                 }],
