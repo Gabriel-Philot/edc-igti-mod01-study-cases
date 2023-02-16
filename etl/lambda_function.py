@@ -84,14 +84,14 @@ def handler(event, context):
                 StepConcurrencyLevel=1,
                 
                 Steps=[{
-                    'Name': 'Delta Insert do ENEM',
+                    'Name': 'Lambda EMR Insert do ENEM',
                     'ActionOnFailure': 'CONTINUE',
                     'HadoopJarStep': {
                         'Jar': 'command-runner.jar',
                         'Args': ['spark-submit',
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
-                                 's3://datalake-edc-mod1-studycases-prod/emr-code/pyspark/delta_spark_01_insert.py'
+                                 's3://datalake-edc-mod1-studycases-prod/emr-code/pyspark/pyspark_01_insert.py'
                                  ]
                     }
                 }],
