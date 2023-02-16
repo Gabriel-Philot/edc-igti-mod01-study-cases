@@ -27,5 +27,5 @@ print("Writing delta table...")
     .write
     .mode("overwrite")
     .format("parquet")
-    .save("datalake-edc-mod1-studycases-prod/staging-zone/")
+    .save("s3://datalake-edc-mod1-studycases-prod/staging-zone/")
 )
