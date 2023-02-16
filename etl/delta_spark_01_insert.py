@@ -19,7 +19,7 @@ enem = (
     .option("inferSchema", True)
     .option("header", True)
     .option("delimiter", ";")
-    .load("s3://datalake-gabrielphilot-igti0-4156-5886-9338/raw-data/microdados_sobe.csv")
+    .load("s3://datalake-edc-mod1-studycases-prod/raw-data/microdados_sobe.csv")
 )
 
 # Escreve a tabela em staging em formato delta
@@ -28,6 +28,6 @@ print("Writing delta table...")
     enem
     .write
     .mode("overwrite")
-    .format("delta")
-    .save("datalake-edc-mod1-studycases-prod/staging-zone/enem/")
+    .format("parquet")
+    .save("datalake-edc-mod1-studycases-prod/staging-zone/microdados_enem")
 )
