@@ -21,11 +21,11 @@ enem = (
 )
 
 # Escreve a tabela em staging em formato delta
-print("Writing delta table...")
+print("Writing parquet table...")
 (
     enem
     .write
     .mode("overwrite")
     .format("parquet")
-    .save("datalake-edc-mod1-studycases-prod/staging-zone/")
+    .save("s3://datalake-edc-mod1-studycases-prod/staging-zone/")
 )
